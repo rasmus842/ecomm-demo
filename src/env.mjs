@@ -8,6 +8,8 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    POSTGRES_CONNECTION: z.string(),
+    MIGRATIONS_FOLDER: z.string(),
   },
 
   /**
@@ -25,6 +27,8 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    POSTGRES_CONNECTION: process.env.POSTGRES_CONNECTION,
+    MIGRATIONS_FOLDER: process.env.MIGRATIONS_FOLDER,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
