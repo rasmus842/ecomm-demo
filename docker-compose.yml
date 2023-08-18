@@ -1,0 +1,24 @@
+services:
+  ecomm:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healty
+    command: ["npm", "run", "start"]
+  db:
+    image: "custom-postgres:1.0"
+    restart: always
+    environment:
+      key: value
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [“CMD-SHELL”, “pg_isready”]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

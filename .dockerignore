@@ -1,0 +1,10 @@
+# git
+.gitignore
+.git
+
+# build files
+node_modules
+.next
+README.md
+
+.env.example
